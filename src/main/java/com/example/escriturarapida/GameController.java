@@ -2,6 +2,7 @@ package com.example.escriturarapida;
 
 import com.example.escriturarapida.events.GameAdapter;
 import com.example.escriturarapida.model.GameEngine;
+import com.example.escriturarapida.ui.BombTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -10,11 +11,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -26,8 +27,8 @@ public class GameController {
 
     @FXML private VBox gamePane;
     @FXML private VBox summaryPane;
+    @FXML private StackPane bombHolder;
     @FXML private Label levelLabel;
-    @FXML private Label timerLabel;
     @FXML private Label wordLabel;
     @FXML private Label messageLabel;
     @FXML private Label summaryTitleLabel;
@@ -35,11 +36,10 @@ public class GameController {
     @FXML private TextField inputField;
     @FXML private Button checkButton;
     @FXML private Button restartButton;
-    @FXML private ProgressBar timeProgressBar;
 
     private final GameEngine engine = new GameEngine();
+    private final BombTimer bomb = new BombTimer();
     private Timeline timeline;
-    private int totalSeconds = 1;
 
     /**
      * Called automatically by JavaFX after the FXML is loaded.
@@ -47,6 +47,8 @@ public class GameController {
      */
     @FXML
     private void initialize() {
+        bombHolder.getChildren().add(bomb);
+
         engine.addListener(new UiGameListener());
 
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), new TickHandler()));
@@ -80,15 +82,6 @@ public class GameController {
         setPaneVisible(summaryPane, false);
         setPaneVisible(gamePane, true);
         engine.start();
-    }
-
-    private void updateTimer(int secondsLeft) {
-        timerLabel.setText(secondsLeft + " s");
-        timeProgressBar.setProgress((double) secondsLeft / totalSeconds);
-        timerLabel.getStyleClass().remove("danger");
-        if (secondsLeft <= 3) {
-            timerLabel.getStyleClass().add("danger");
-        }
     }
 
     private void showMessage(String text, boolean success) {
@@ -145,18 +138,17 @@ public class GameController {
 
         @Override
         public void onLevelStarted(int level, String word, int secondsLeft) {
-            totalSeconds = secondsLeft;
             levelLabel.setText("Nivel " + level);
             wordLabel.setText(word);
             inputField.clear();
-            updateTimer(secondsLeft);
+            bomb.start(secondsLeft);
             timeline.playFromStart();
             Platform.runLater(() -> inputField.requestFocus());
         }
 
         @Override
         public void onTick(int secondsLeft) {
-            updateTimer(secondsLeft);
+            bomb.setSecondsLeft(secondsLeft);
         }
 
         @Override
@@ -172,6 +164,7 @@ public class GameController {
         @Override
         public void onGameOver(int completedLevels, int secondsLeft, boolean won) {
             timeline.stop();
+            bomb.stop();
             setPaneVisible(gamePane, false);
             setPaneVisible(summaryPane, true);
             summaryTitleLabel.setText(won ? "¡Ganaste el juego!" : "¡Fin de la partida! Tiempo agotado");

@@ -21,7 +21,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("game-view.fxml"));
-        Scene scene = new Scene(loader.load(), 700, 460);
+        Scene scene = new Scene(loader.load(), 700, 580);
         stage.setTitle("Escritura Rápida");
         stage.setScene(scene);
         stage.show();

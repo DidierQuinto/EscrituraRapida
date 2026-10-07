@@ -8,13 +8,12 @@
            fx:controller="com.example.escriturarapida.GameController"
            stylesheets="@styles.css" styleClass="root-pane">
 
-    <VBox fx:id="gamePane" alignment="CENTER" spacing="16">
+    <VBox fx:id="gamePane" alignment="CENTER" spacing="12">
         <padding>
             <Insets top="24" right="24" bottom="24" left="24"/>
         </padding>
         <Label fx:id="levelLabel" text="Nivel 1" styleClass="level-label"/>
-        <Label fx:id="timerLabel" text="20 s" styleClass="timer-label"/>
-        <ProgressBar fx:id="timeProgressBar" progress="1.0" prefWidth="420"/>
+        <StackPane fx:id="bombHolder" minHeight="200" prefHeight="200" maxHeight="200"/>
         <Label fx:id="wordLabel" text="..." styleClass="word-label"
                wrapText="true" maxWidth="600" textAlignment="CENTER"/>
         <TextField fx:id="inputField" promptText="Escribe aquí y presiona Enter" maxWidth="420"/>
