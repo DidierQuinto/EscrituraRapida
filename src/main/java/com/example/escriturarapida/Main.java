@@ -1,4 +1,4 @@
-package org.example.escrituratrabajo;
+package com.example.escriturarapida;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
