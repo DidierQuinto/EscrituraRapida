@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.escriturarapida.GameController"
+           stylesheets="@styles.css" styleClass="root-pane">
+
+    <VBox fx:id="gamePane" alignment="CENTER" spacing="16">
+        <padding>
+            <Insets top="24" right="24" bottom="24" left="24"/>
+        </padding>
+        <Label fx:id="levelLabel" text="Nivel 1" styleClass="level-label"/>
+        <Label fx:id="timerLabel" text="20 s" styleClass="timer-label"/>
+        <ProgressBar fx:id="timeProgressBar" progress="1.0" prefWidth="420"/>
+        <Label fx:id="wordLabel" text="..." styleClass="word-label"
+               wrapText="true" maxWidth="600" textAlignment="CENTER"/>
+        <TextField fx:id="inputField" promptText="Escribe aquí y presiona Enter" maxWidth="420"/>
+        <Button fx:id="checkButton" text="Comprobar" onAction="#onCheckClicked"/>
+        <Label fx:id="messageLabel" styleClass="message-label"/>
+    </VBox>
+
+    <VBox fx:id="summaryPane" alignment="CENTER" spacing="20" visible="false" managed="false">
+        <Label fx:id="summaryTitleLabel" text="Fin de la partida" styleClass="word-label"
+               wrapText="true" maxWidth="600" textAlignment="CENTER"/>
+        <Label fx:id="summaryLabel" styleClass="level-label" textAlignment="CENTER"/>
+        <Button fx:id="restartButton" text="Reiniciar" onAction="#onRestartClicked"/>
+    </VBox>
+</StackPane>

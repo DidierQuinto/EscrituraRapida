@@ -1,0 +1,42 @@
+.root-pane {
+    -fx-background-color: #1e1e2e;
+}
+
+.level-label {
+    -fx-text-fill: #cdd6f4;
+    -fx-font-size: 20px;
+}
+
+.timer-label {
+    -fx-text-fill: #a6e3a1;
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+}
+
+.timer-label.danger {
+    -fx-text-fill: #f38ba8;
+}
+
+.word-label {
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.message-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+
+.message-label.success {
+    -fx-text-fill: #a6e3a1;
+}
+
+.message-label.error {
+    -fx-text-fill: #f38ba8;
+}
+
+.button {
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+}
