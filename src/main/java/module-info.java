@@ -2,7 +2,6 @@ module com.example.escriturarapida {
     requires javafx.controls;
     requires javafx.fxml;
 
-
-    opens com.example.escriturarapida to javafx.fxml;
-    exports com.example.escriturarapida;
+    opens org.example.escrituratrabajo to javafx.graphics, javafx.fxml;
+    exports org.example.escrituratrabajo;
 }
