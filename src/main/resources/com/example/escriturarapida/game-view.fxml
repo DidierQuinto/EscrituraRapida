@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.example.escriturarapida.GameController"
-           stylesheets="@styles.css" styleClass="root-pane">
+<StackPane styleClass="root-pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.escriturarapida.GameController">
 
     <VBox fx:id="gamePane" alignment="CENTER" spacing="12">
         <padding>
-            <Insets top="24" right="24" bottom="24" left="24"/>
+            <Insets bottom="24" left="24" right="24" top="24" />
         </padding>
-        <Label fx:id="levelLabel" text="Nivel 1" styleClass="level-label"/>
-        <StackPane fx:id="bombHolder" minHeight="200" prefHeight="200" maxHeight="200"/>
-        <Label fx:id="wordLabel" text="..." styleClass="word-label"
-               wrapText="true" maxWidth="600" textAlignment="CENTER"/>
-        <TextField fx:id="inputField" promptText="Escribe aquí y presiona Enter" maxWidth="420"/>
-        <Button fx:id="checkButton" text="Comprobar" onAction="#onCheckClicked"/>
-        <Label fx:id="messageLabel" styleClass="message-label"/>
+        <Label fx:id="levelLabel" styleClass="level-label" text="Nivel 1" textFill="WHITE" />
+        <StackPane fx:id="bombHolder" maxHeight="200" minHeight="200" prefHeight="200" />
+        <Label fx:id="wordLabel" maxWidth="600" styleClass="word-label" text="..." alignment="CENTER" textAlignment="CENTER" wrapText="true" />
+        <TextField fx:id="inputField" maxWidth="420" promptText="Escribe aquí y presiona Enter" />
+        <Button fx:id="checkButton" onAction="#onCheckClicked" text="Comprobar" />
+        <Label fx:id="messageLabel" styleClass="message-label" />
     </VBox>
 
-    <VBox fx:id="summaryPane" alignment="CENTER" spacing="20" visible="false" managed="false">
-        <Label fx:id="summaryTitleLabel" text="Fin de la partida" styleClass="word-label"
-               wrapText="true" maxWidth="600" textAlignment="CENTER"/>
-        <Label fx:id="summaryLabel" styleClass="level-label" textAlignment="CENTER"/>
-        <Button fx:id="restartButton" text="Reiniciar" onAction="#onRestartClicked"/>
+    <VBox fx:id="summaryPane" alignment="CENTER" managed="false" spacing="20" visible="false">
+        <Label fx:id="summaryTitleLabel" maxWidth="600" styleClass="word-label" text="Fin de la partida" textAlignment="CENTER" wrapText="true" />
+        <Label fx:id="summaryLabel" styleClass="level-label" textAlignment="CENTER" />
+        <Button fx:id="restartButton" onAction="#onRestartClicked" text="Reiniciar" />
     </VBox>
 </StackPane>
