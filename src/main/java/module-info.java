@@ -4,4 +4,7 @@ module com.example.escriturarapida {
 
     opens com.example.escriturarapida to javafx.graphics, javafx.fxml;
     exports com.example.escriturarapida;
+    exports com.example.escriturarapida.events;
+    exports com.example.escriturarapida.model;
+    exports com.example.escriturarapida.ui;
 }

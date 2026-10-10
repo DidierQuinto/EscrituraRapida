@@ -17,7 +17,7 @@ public class WordBank {
             "Escritura Rápida",
             "Cali, Colombia",
             "Universidad del Valle",
-            "¡Hola, mundo!",
+            "Hola mundo",
             "Java es divertido.",
             "Compilar y ejecutar",
             "Nivel superado",
