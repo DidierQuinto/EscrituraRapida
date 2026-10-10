@@ -12,7 +12,7 @@ import java.util.List;
 public class GameEngine {
 
     /** Level that must be completed to win the game. */
-    public static final int MAX_LEVEL = 50;
+    public static final int MAX_LEVEL = 46;
 
     private final WordBank wordBank = new WordBank();
     private final GameState state = new GameState();
