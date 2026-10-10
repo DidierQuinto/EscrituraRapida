@@ -23,7 +23,27 @@ public class WordBank {
             "Nivel superado",
             "Fundamentos de eventos",
             "El que persevera, alcanza.",
-            "Mouse y teclado"
+            "Mouse y teclado",
+            "tecla rápida",
+            "código limpio",
+            "nivel nuevo",
+            "tiempo límite",
+            "palabra secreta",
+            "mente ágil",
+            "ritmo constante",
+            "respuesta exacta",
+            "teclado veloz",
+            "frase corta",
+            "buen intento",
+            "punto extra",
+            "modo experto",
+            "reto diario",
+            "letra correcta",
+            "juego activo",
+            "meta final",
+            "programa abierto",
+            "evento Java",
+            "gran velocidad"
     );
 
     private final Random random = new Random();
